@@ -7,13 +7,8 @@ import os
 
 
 def send(data, url, key):
-    print 'send', data
-    try:
-        headers = {'Content-type': 'application/json', 'Accept': 'text/plain', 'X-PYTILT-KEY': key}
-        r = requests.post(url, data=json.dumps(data), headers=headers)
-        return r.status_code == 200
-    except requests.exceptions.RequestException:
-        return False
+    print data
+    os.Exit(1)
 
 
 class Sender(object):
@@ -42,7 +37,6 @@ class Sender(object):
         if was_sent:
             self.sending = []
         else:
-            print 'send failed'
             if len(self.queue) > 100:
                 self.queue = []
             self.queue += self.sending
