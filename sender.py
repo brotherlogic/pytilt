@@ -4,11 +4,12 @@ import json
 from multiprocessing import Pool
 import time
 import os
+import sys
 
 
 def send(data, url, key):
     print data
-    os.Exit(1)
+    os._exit()
 
 
 class Sender(object):
